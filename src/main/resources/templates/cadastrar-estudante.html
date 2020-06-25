@@ -45,9 +45,26 @@
 									th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"
 									class="text-danger"></span>
 							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="telefone" class="col-form-label">Matricula</label> <input
+									type="text" th:field="*{matricula}" class="form-control"
+									id="telefone" placeholder="matricula"> <span
+									th:if="${#fields.hasErrors('matricula')}" th:errors="*{matricula}"
+									class="text-danger"></span>
+							</div>
+							
+							<div class="form-group col-md-8">
+								<label for="telefone" class="col-form-label">Curso</label> <input
+									type="text" th:field="*{curso}" class="form-control"
+									id="telefone" placeholder="curso"> <span
+									th:if="${#fields.hasErrors('curso')}" th:errors="*{curso}"
+									class="text-danger"></span>
+							</div>							
+							
 
 							<div class="col-md-6">
-								<input type="button" class="btn btn-primary" value="Adicionar Estudante">
+								<input type="submit" class="btn btn-primary" value="Adicionar Estudante">
 							</div>
 							
 							<div class="form-group col-md-8"></div>
