@@ -30,57 +30,112 @@ public class Estudante {
 	
 	private String telefone;
 	
+	@NotNull(message = "Matricula é obrigatório")
+	private String matricula;
+	
+	private String curso;
+	
 	public Estudante() { }
 
-	public Estudante(Long id, String nome, String email, String telefone) {
+	
+
+	public Estudante(Long id, String nome, String email, String telefone, String matricula, String curso) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.telefone = telefone;
+		this.matricula = matricula;
+		this.curso = curso;
 	}
+
 
 	public Long getId() {
 		return id;
 	}
 
+
+
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+
 
 	public String getNome() {
 		return nome;
 	}
 
+
+
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public String getTelefone() {
 		return telefone;
 	}
 
+
+
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
+
+
+
+	public String getMatricula() {
+		return matricula;
+	}
+
+
+
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+
+
+
+	public String getCurso() {
+		return curso;
+	}
+
+
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((matricula == null) ? 0 : matricula.hashCode());
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + ((telefone == null) ? 0 : telefone.hashCode());
 		return result;
 	}
+
+
 
 	@Override
 	public boolean equals(Object estudante) {
@@ -91,6 +146,11 @@ public class Estudante {
 		if (getClass() != estudante.getClass())
 			return false;
 		Estudante other = (Estudante) estudante;
+		if (curso == null) {
+			if (other.curso != null)
+				return false;
+		} else if (!curso.equals(other.curso))
+			return false;
 		if (email == null) {
 			if (other.email != null)
 				return false;
@@ -100,6 +160,11 @@ public class Estudante {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
+			return false;
+		if (matricula == null) {
+			if (other.matricula != null)
+				return false;
+		} else if (!matricula.equals(other.matricula))
 			return false;
 		if (nome == null) {
 			if (other.nome != null)
@@ -114,10 +179,15 @@ public class Estudante {
 		return true;
 	}
 
+
+
 	@Override
 	public String toString() {
-		return "Estudante(id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ")";
-	}	
+		return "Estudante (id=" + id + ", nome=" + nome + ", email=" + email + ", telefone=" + telefone + ", matricula="
+				+ matricula + ", curso=" + curso + ")";
+	}
+	
+	
 	
 }
 
