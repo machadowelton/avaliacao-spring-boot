@@ -42,4 +42,12 @@ public class EstudanteServiceImpl implements EstudandeService {
 							.orElseThrow(() -> new IllegalArgumentException("Identificador inválido:" + id));
 	}
 
+	@Override
+	public void removerEstudantePorId(Long id) {
+		if(repository.existsById(id))
+			repository.deleteById(id);
+		else
+			throw new IllegalArgumentException("Identificador inválido:" + id);
+	}	
+
 }
