@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
-import br.com.tokiomarine.seguradora.avaliacao.service.EstudandeService;
+import br.com.tokiomarine.seguradora.avaliacao.service.EstudanteService;
 import br.com.tokiomarine.seguradora.avaliacao.service.EstudanteServiceImpl;
 
 @RestController
@@ -25,7 +25,7 @@ public class EstudanteRestController {
 
 	// TODO caso você não conheça THEMELEAF faça a implementação dos métodos em forma de RESTCONTROLLER (seguindo o padrão RESTFUL)
 
-	private final EstudandeService estudandeService;
+	private final EstudanteService estudandeService;
 	
 	public EstudanteRestController(final EstudanteServiceImpl estudanteServiceImpl) {
 		this.estudandeService = estudanteServiceImpl;

@@ -10,7 +10,7 @@ import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 import br.com.tokiomarine.seguradora.avaliacao.repository.EstudanteRepository;
 
 @Service
-public class EstudanteServiceImpl implements EstudandeService {
+public class EstudanteServiceImpl implements EstudanteService {
 
 	private final EstudanteRepository repository;
 	
