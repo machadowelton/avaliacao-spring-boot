@@ -20,22 +20,26 @@ public class EstudanteServiceImpl implements EstudandeService {
 
 	@Override
 	public void cadastrarEstudante(@Valid Estudante estudante) {
-
+		repository.save(estudante);
 	}
 
 	@Override
 	public void atualizarEstudante(@Valid Estudante estudante) {
-
+		if(!repository.existsById(estudante.getId()))
+			throw new IllegalArgumentException("Identificador inválido:" + estudante.getId());
+		repository.save(estudante);
 	}
 
 	@Override
 	public List<Estudante> buscarEstudantes() {
-		return null;
+		return repository.findAll();
 	}
 
 	@Override
 	public Estudante buscarEstudante(long id) {
-		throw new IllegalArgumentException("Identificador inválido:" + id);
+		return repository.findById(id)
+							.map((m) -> m)
+							.orElseThrow(() -> new IllegalArgumentException("Identificador inválido:" + id));
 	}
 
 }
