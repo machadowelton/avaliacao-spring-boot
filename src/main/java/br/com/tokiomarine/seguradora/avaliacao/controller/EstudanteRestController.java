@@ -1,9 +1,9 @@
 package br.com.tokiomarine.seguradora.avaliacao.controller;
 
-import java.util.List;
-
 import javax.validation.Valid;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,6 +31,11 @@ public class EstudanteRestController {
 		this.estudandeService = estudanteServiceImpl;
 	}
 	
+	@GetMapping("/{id}")
+	public Estudante buscarPorId(@PathVariable("id") Long id) {
+		return estudandeService.buscarEstudante(id);
+	}
+	
 	// TODO IMPLEMENTAR CADASTRO DE ESTUDANTES (POST)
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
@@ -44,13 +49,13 @@ public class EstudanteRestController {
 	public void atualizar(
 			@PathVariable("id") Long id,
 			@Valid @RequestBody Estudante estudante) {
-		estudandeService.atualizarEstudante(estudante);
+		estudandeService.atualizarEstudante(estudante, id);
 	}
 
 	// TODO IMPLEMENTAR A LISTAGEM DE ESTUDANTES (GET)
 	@GetMapping
-	public List<Estudante> listar() {
-		return estudandeService.buscarEstudantes();
+	public Page<Estudante> listar(Pageable pageable) {
+		return estudandeService.buscarEstudantes(pageable);
 	}
 
 	// TODO IMPLEMENTAR A EXCLUSÃO DE ESTUDANTES (DELETE)

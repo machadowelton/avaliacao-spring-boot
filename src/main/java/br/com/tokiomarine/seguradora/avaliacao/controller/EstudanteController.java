@@ -27,7 +27,7 @@ public class EstudanteController {
 
 	@GetMapping("listar")
 	public String listarEstudantes(Model model) {
-		model.addAttribute("estudtes", service.buscarEstudantes());
+		//model.addAttribute("estudtes", service.buscarEstudantes());
 		return "index";
 	}
 
@@ -56,16 +56,16 @@ public class EstudanteController {
 			return "atualizar-estudante";
 		}
 
-		service.atualizarEstudante(estudante);
-
-		model.addAttribute("estudantes", service.buscarEstudantes());
+//		service.atualizarEstudante(estudante);
+//
+//		model.addAttribute("estudantes", service.buscarEstudantes());
 		return "index";
 	}
 
 	@GetMapping("apagar/{id}")
 	public String apagarEstudante(@PathVariable("id") long id, Model model) {
 		// TODO IMPLEMENTAR A EXCLUSAO DE ESTUDANTES
-		model.addAttribute("estudantes", service.buscarEstudantes());
+		//model.addAttribute("estudantes", service.buscarEstudantes());
 		return "index";
 	}
 }
